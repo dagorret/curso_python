@@ -37,3 +37,6 @@ print(nombre)
 print(dia)
 print(mes)
 print(agno)
+# Buscar por indice
+print("----------------")
+print(miTupla[0])
