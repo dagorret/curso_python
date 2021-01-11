@@ -12,3 +12,6 @@ print(miLista[-1])
 #Imprimir a porciiones de la lista
 #El primer elemento es inclusivo y el segundo elemento es exclusivo
 print(miLista[0:3])
+
+# porciones abreviados
+print(miLista[:3])
