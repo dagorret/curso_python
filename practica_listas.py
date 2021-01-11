@@ -15,3 +15,7 @@ print(miLista[0:3])
 
 # porciones abreviados
 print(miLista[:3])
+
+
+# acceder desde el elemento 2 hasta el final
+print(miLista[2:])
