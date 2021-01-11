@@ -50,3 +50,16 @@ miLista.remove("Ana")
 print(miLista)
 miLista.remove(5)
 print(miLista)
+
+# Remover el último elemento de la lista
+miLista = ["María", 5, True, 78.35]
+miLista.pop()
+print(miLista)
+
+# Unir dos listas
+miLista2 = ["Sandra", "Lucía"]
+milista3 = miLista + miLista2
+print(milista3)
+
+# Repetir la lista
+print(miLista2 * 3)
