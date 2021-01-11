@@ -38,3 +38,15 @@ print(miLista.index("Antonio"))
 # Comprobar si un elemento se encuentra o no en una lista
 print("Pepe" in miLista)
 print("Sergio" in miLista)
+
+
+# Lista con distinto tipos de elementos
+miLista = ["María", 5, True, 78.35]
+miLista.extend(["Sandra", "Ana", "Lucía"])
+print(miLista)
+
+# Para eliminar elementos
+miLista.remove("Ana")
+print(miLista)
+miLista.remove(5)
+print(miLista)
