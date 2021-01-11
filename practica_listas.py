@@ -27,3 +27,14 @@ print(miLista)
 # Añadir elementos a la lista en una posición especial
 miLista.insert(2, "Fabiana")
 print(miLista)
+
+# Añadir una lista a lista
+miLista.extend(["Pablo", "Juan"])
+print(miLista)
+
+# Imprimir el indice de un elemento
+print(miLista.index("Antonio"))
+
+# Comprobar si un elemento se encuentra o no en una lista
+print("Pepe" in miLista)
+print("Sergio" in miLista)
