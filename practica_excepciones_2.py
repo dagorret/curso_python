@@ -1,4 +1,6 @@
 def evaluarEdad(edad):
+    if edad < 0:
+        raise TypeError("Las edades negativas son incorrectas")
     if edad < 20:
         return "eres muy jove"
     elif edad < 40:
@@ -9,4 +11,4 @@ def evaluarEdad(edad):
         return "cuidate ..."
 
 
-print(evaluarEdad(18))
+print(evaluarEdad(70))
