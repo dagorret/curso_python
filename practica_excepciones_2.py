@@ -12,3 +12,20 @@ def evaluarEdad(edad):
 
 
 print(evaluarEdad(70))
+
+import math
+
+def calculaRaiz(num):
+    if num < 0:
+        raise ValueError("El número no puede ser negativo")
+    else:
+        return math.sqrt(num)
+
+op1 = int(input("Introduce un número"))
+
+try:
+    print(calculaRaiz(op1))
+except ValueError as ErrordeNumeroNegativo:
+    print(ErrordeNumeroNegativo)
+
+print("Programa Terminado")
