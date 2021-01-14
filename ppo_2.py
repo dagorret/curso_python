@@ -18,7 +18,6 @@ class Coche():
                 "Un ancho de ", self.__ancho_chasis,
                 " y un largo de ", self.__largo_chasis)
 
-
 mi_coche = Coche()
 
 print(mi_coche.arrancar(True))
