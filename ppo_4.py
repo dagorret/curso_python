@@ -1,4 +1,4 @@
-class Vehiculos():
+class Vehiculo():
 
     def __init__(self, marca, modelo):
         self.marca = marca 
@@ -22,3 +22,9 @@ class Vehiculos():
             "En Marcha: ", self.en_marcha, "\n",
             "Acelerando: ", self.acelerar, "\n",
             "Frenando: ", self.frenar, "\n")
+
+class Moto(Vehiculo):
+    pass
+
+mi_moto = Moto("Honda", "CBR")
+mi_moto.estado()
