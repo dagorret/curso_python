@@ -27,7 +27,7 @@ class Vehiculo():
 
 
 coche1 = Vehiculo("Ford", "MKS")
-coche2 =  Vehiculo("Fiat", "Chronos")
+coche2 = Vehiculo("Fiat", "Chronos")
 coche3 = Vehiculo("Renault", "Megane")
 
 coches = [coche1, coche2, coche3]
