@@ -6,10 +6,33 @@ miFrame = Frame(raiz)
 miFrame.pack()
 
 numeroPantalla = StringVar()
+operacion = ""
+resultado = 0
 
 # Pulsaciones teclado
 def numeroPulsado(num):
-    numeroPantalla.set(numeroPantalla.get() + num)
+    global operacion
+
+    if operacion != "":
+        numeroPantalla.set(num)
+        operacion = ""
+    else:
+        numeroPantalla.set(numeroPantalla.get() + num)
+
+def suma(num):
+    global operacion
+    global resultado
+
+    resultado += int(num)
+    operacion = "Suma"
+
+    numeroPantalla.set(resultado)
+
+def el_resultado():
+    global el_resultado
+
+    numeroPantalla.set(resultado + int(numeroPantalla.get()))
+    resultado = 0
 
 
 # Pantalla
@@ -52,9 +75,9 @@ boton0 = Button(miFrame, text="0", width=3, command=lambda:numeroPulsado("0"))
 boton0.grid(row=5, column=1)
 botonComa = Button(miFrame, text=",", width=3, command=lambda:numeroPulsado(","))
 botonComa.grid(row=5, column=2)
-botonIgual = Button(miFrame, text="=", width=3)
+botonIgual = Button(miFrame, text="=", width=3, command=lambda:el_resultado())
 botonIgual.grid(row=5, column=3)
-botonSum = Button(miFrame, text="+", width=3)
+botonSum = Button(miFrame, text="+", width=3, command=lambda:suma(numeroPantalla.get()))
 botonSum.grid(row=5, column=4)
 
 
