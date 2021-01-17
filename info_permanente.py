@@ -16,6 +16,19 @@ class Persona:
 class ListaPersonas():
     personas = []
 
+    def __init__(self):
+        archivo = open("personas.dat", "ab+")
+        archivo.seek(0)
+
+        try:
+            self.personas = pickle.load(archivo)
+            print("Se cargaron {} personas".format(len(personas)))
+        except:
+            print("El fichero está vació")
+        finally:
+            archivo.close()
+            del(archivo)
+
     def agregar(self, p):
         self.personas.append(p)
 
