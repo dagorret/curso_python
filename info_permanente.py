@@ -31,17 +31,35 @@ class ListaPersonas():
 
     def agregar(self, p):
         self.personas.append(p)
+        self.guardar()
 
     def mostrar(self):
         for p in self.personas:
             print(p)
+
+    def guardar(self):
+        archivo = open("personas.dat", "wb")
+        pickle.dump(self.personas, archivo)
+        print("aca")
+        archivo.flush()
+        archivo.close()
+        del(archivo)
+
+    def info(self):
+        print("La info del fichero es")
+        for p in self.personas:
+            print(p)
+
 
 miLista = ListaPersonas()
 p = Persona("Sandra", "Femenino", 29)
 miLista.agregar(p)
 p = Persona("Antonio", "Masculini", 33)
 miLista.agregar(p)
-p = Persona("Ana", "Femenino", 19)
+p = Persona("Ana", "Femenino", 18)
 miLista.agregar(p)
 
 miLista.mostrar()
+
+print("Fichero")
+miLista.info()
