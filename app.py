@@ -48,6 +48,30 @@ def crear():
 
     messagebox.showinfo("BBDD", "Registro insertado")
 
+def leer():
+    mi_conexion = sqlite3.connect("app.db")
+    cursor = mi_conexion.cursor()
+    cursor.execute("SELECT * FROM datausuarios WHERE id=" + v_id.get() )
+    datos = cursor.fetchall()
+    
+    for u in datos:
+        v_id.set(u[0])
+        v_nombre.set(u[1])
+        v_pass.set(u[2])
+        v_apellido.set(u[3])
+        v_direccion.set(u[4])
+        cuadro_texto.insert(1.0, u[5])
+
+def actualizar():
+    mi_conexion = sqlite3.connect("app.db")
+    cursor = mi_conexion.cursor()
+    comentario = cuadro_texto.get("1.0", END)
+    sql = f"UPDATE datausuarios SET nombre = '{v_nombre.get()}', password = '{v_pass.get()}', apellido ='{v_apellido.get()}', direccion ='{v_direccion.get()}', comentarios ='{comentario}'"
+    cursor.execute(sql)
+    mi_conexion.commit()
+
+    messagebox.showinfo("BBDD", "Registro se ha actualizado")
+
 # Menu
 barramenu = Menu(root)
 root.config(menu = barramenu, width=300, height=300)
@@ -62,8 +86,8 @@ borrar_menu.add_command(label = "Borrar Campos", command=borrar)
 
 crud_menu = Menu(barramenu, tearoff=0)
 crud_menu.add_command(label = "Crear", command=crear)
-crud_menu.add_command(label = "Leer")
-crud_menu.add_command(label = "Actualizar")
+crud_menu.add_command(label = "Leer", command = leer)
+crud_menu.add_command(label = "Actualizar", command=actualizar)
 crud_menu.add_command(label = "Borrar")
 
 
@@ -137,11 +161,11 @@ btn_crear = Button(b_frame, text="Crear", command=crear)
 btn_crear.grid(row=0, column=0, sticky="e", padx=6, pady=6)
 
 
-btn_leer = Button(b_frame, text="Leer")
+btn_leer = Button(b_frame, text="Leer", command = leer)
 btn_leer.grid(row=0, column=1, sticky="e", padx=6, pady=6)
 
 
-btn_actualizar = Button(b_frame, text="Actualizar")
+btn_actualizar = Button(b_frame, text="Actualizar", command=actualizar)
 btn_actualizar.grid(row=0, column=2, sticky="e", padx=6, pady=6)
 
 
