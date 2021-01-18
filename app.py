@@ -72,6 +72,14 @@ def actualizar():
 
     messagebox.showinfo("BBDD", "Registro se ha actualizado")
 
+def borrar_registro():
+    mi_conexion = sqlite3.connect("app.db")
+    cursor = mi_conexion.cursor()
+    cursor.execute(f"DELETE FROM datausuarios WHERE ID={v_id.get()}")
+    mi_conexion.commit()
+
+    messagebox.showinfo("Borrado", "Registro ha sido borrado`")
+
 # Menu
 barramenu = Menu(root)
 root.config(menu = barramenu, width=300, height=300)
@@ -88,7 +96,7 @@ crud_menu = Menu(barramenu, tearoff=0)
 crud_menu.add_command(label = "Crear", command=crear)
 crud_menu.add_command(label = "Leer", command = leer)
 crud_menu.add_command(label = "Actualizar", command=actualizar)
-crud_menu.add_command(label = "Borrar")
+crud_menu.add_command(label = "Borrar", command=borrar_registro)
 
 
 ayuda_menu = Menu(barramenu, tearoff=0)
@@ -169,7 +177,7 @@ btn_actualizar = Button(b_frame, text="Actualizar", command=actualizar)
 btn_actualizar.grid(row=0, column=2, sticky="e", padx=6, pady=6)
 
 
-btn_borrar = Button(b_frame, text="Borrar")
+btn_borrar = Button(b_frame, text="Borrar", command=borrar_registro)
 btn_borrar.grid(row=0, column=3, sticky="e", padx=6, pady=6)
 
 root.mainloop()
