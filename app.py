@@ -53,7 +53,7 @@ def leer():
     cursor = mi_conexion.cursor()
     cursor.execute("SELECT * FROM datausuarios WHERE id=" + v_id.get() )
     datos = cursor.fetchall()
-    
+
     for u in datos:
         v_id.set(u[0])
         v_nombre.set(u[1])
@@ -66,7 +66,7 @@ def actualizar():
     mi_conexion = sqlite3.connect("app.db")
     cursor = mi_conexion.cursor()
     comentario = cuadro_texto.get("1.0", END)
-    sql = f"UPDATE datausuarios SET nombre = '{v_nombre.get()}', password = '{v_pass.get()}', apellido ='{v_apellido.get()}', direccion ='{v_direccion.get()}', comentarios ='{comentario}'"
+    sql = f"UPDATE datausuarios SET nombre = '{v_nombre.get()}', password = '{v_pass.get()}', apellido ='{v_apellido.get()}', direccion ='{v_direccion.get()}', comentarios ='{comentario}' WHERE id='{v_id.get()}'"
     cursor.execute(sql)
     mi_conexion.commit()
 
