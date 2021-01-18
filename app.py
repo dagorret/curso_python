@@ -38,6 +38,15 @@ def borrar():
     v_pass.set("")
     cuadro_texto.delete(1.0, END)
 
+def crear():
+    mi_conexion = sqlite3.connect("app.db")
+    cursor = mi_conexion.cursor()
+    comentario = cuadro_texto.get("1.0", END)
+    sql = f"INSERT INTO datausuarios VALUES(NULL, '{v_nombre.get()}', '{v_pass.get()}', '{v_apellido.get()}', '{v_direccion.get()}', '{comentario}')"
+    cursor.execute(sql)
+    mi_conexion.commit()
+
+    messagebox.showinfo("BBDD", "Registro insertado")
 
 # Menu
 barramenu = Menu(root)
@@ -52,7 +61,7 @@ borrar_menu.add_command(label = "Borrar Campos", command=borrar)
 
 
 crud_menu = Menu(barramenu, tearoff=0)
-crud_menu.add_command(label = "Crear")
+crud_menu.add_command(label = "Crear", command=crear)
 crud_menu.add_command(label = "Leer")
 crud_menu.add_command(label = "Actualizar")
 crud_menu.add_command(label = "Borrar")
@@ -124,7 +133,7 @@ l_texto.grid(row=5, column=0, sticky="e", padx=6, pady=6)
 b_frame = Frame(root)
 b_frame.pack()
 
-btn_crear = Button(b_frame, text="Crear")
+btn_crear = Button(b_frame, text="Crear", command=crear)
 btn_crear.grid(row=0, column=0, sticky="e", padx=6, pady=6)
 
 
