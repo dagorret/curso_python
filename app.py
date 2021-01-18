@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import messagebox
 import sqlite3
 
+root = Tk()
+
 # Funciones
 
 def conexion():
@@ -28,8 +30,14 @@ def salir():
     if valor == "yes":
         root.destroy()
 
+def borrar():
+    v_id.set("")
+    v_nombre.set("")
+    v_apellido.set("")
+    v_direccion.set("")
+    v_pass.set("")
+    cuadro_texto.delete(1.0, END)
 
-root = Tk()
 
 # Menu
 barramenu = Menu(root)
@@ -40,7 +48,7 @@ bbdd_menu.add_command(label = "Conectar", command = conexion)
 bbdd_menu.add_command(label = "Salir", command = salir)
 
 borrar_menu = Menu(barramenu, tearoff=0)
-borrar_menu.add_command(label = "Borrar Campos")
+borrar_menu.add_command(label = "Borrar Campos", command=borrar)
 
 
 crud_menu = Menu(barramenu, tearoff=0)
@@ -60,24 +68,31 @@ barramenu.add_cascade(label="CRUD", menu=crud_menu)
 barramenu.add_cascade(label="Ayuda", menu=ayuda_menu)
 
 # Campos
+    #variables
+v_id = StringVar()
+v_nombre = StringVar()
+v_apellido = StringVar()
+v_pass = StringVar()
+v_direccion = StringVar()
+
 mi_frame = Frame(root)
 mi_frame.pack()
 
-cuadro_id = Entry(mi_frame)
+cuadro_id = Entry(mi_frame, textvariable=v_id)
 cuadro_id.grid(row=0, column=1, padx=6, pady=6)
 
-cuadro_nombre = Entry(mi_frame)
+cuadro_nombre = Entry(mi_frame, textvariable=v_nombre)
 cuadro_nombre.grid(row=1, column=1, padx=6, pady=6)
 cuadro_nombre.config(fg="red", justify="right")
 
-cuadro_pass = Entry(mi_frame)
+cuadro_pass = Entry(mi_frame, textvariable=v_pass)
 cuadro_pass.grid(row=2, column=1, padx=6, pady=6)
 cuadro_pass.config(show="*")
 
-cuadro_apellido = Entry(mi_frame)
+cuadro_apellido = Entry(mi_frame, textvariable=v_apellido)
 cuadro_apellido.grid(row=3, column=1, padx=6, pady=6)
 
-cuadro_direccion = Entry(mi_frame)
+cuadro_direccion = Entry(mi_frame, textvariable=v_direccion)
 cuadro_direccion.grid(row=4, column=1, padx=6, pady=6)
 
 cuadro_texto = Text(mi_frame, width=16, height=5)
@@ -99,7 +114,7 @@ l_pass.grid(row=2, column=0, sticky="e", padx=6, pady=6)
 l_apellido = Label(mi_frame, text = "Apellido:")
 l_apellido.grid(row=3, column=0, sticky="e", padx=6, pady=6)
 
-l_id = Label(mi_frame, text = "Id:")
+l_id = Label(mi_frame, text = "Dirección:")
 l_id.grid(row=4, column=0, sticky="e", padx=6, pady=6)
 
 l_texto = Label(mi_frame, text = "Comentarios:")
