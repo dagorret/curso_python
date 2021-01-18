@@ -41,9 +41,11 @@ def borrar():
 def crear():
     mi_conexion = sqlite3.connect("app.db")
     cursor = mi_conexion.cursor()
-    comentario = cuadro_texto.get("1.0", END)
-    sql = f"INSERT INTO datausuarios VALUES(NULL, '{v_nombre.get()}', '{v_pass.get()}', '{v_apellido.get()}', '{v_direccion.get()}', '{comentario}')"
-    cursor.execute(sql)
+    #comentario = cuadro_texto.get("1.0", END)
+    #sql = f"INSERT INTO datausuarios VALUES(NULL, '{v_nombre.get()}', '{v_pass.get()}', '{v_apellido.get()}', '{v_direccion.get()}', '{comentario}')"
+    datos = v_nombre.get(), v_pass.get(), v_apellido.get(), v_direccion.get(), cuadro_texto.get("1.0", END)
+    #cursor.execute(sql)
+    cursor.execute("INSERT INTO datausuarios VALUES(NULL, ?,?,?,?,?)", (datos))
     mi_conexion.commit()
 
     messagebox.showinfo("BBDD", "Registro insertado")
@@ -66,8 +68,10 @@ def actualizar():
     mi_conexion = sqlite3.connect("app.db")
     cursor = mi_conexion.cursor()
     comentario = cuadro_texto.get("1.0", END)
-    sql = f"UPDATE datausuarios SET nombre = '{v_nombre.get()}', password = '{v_pass.get()}', apellido ='{v_apellido.get()}', direccion ='{v_direccion.get()}', comentarios ='{comentario}' WHERE id='{v_id.get()}'"
-    cursor.execute(sql)
+    datos = v_nombre.get(), v_pass.get(), v_apellido.get(), v_direccion.get(), cuadro_texto.get("1.0", END)
+    #sql = f"UPDATE datausuarios SET nombre = '{v_nombre.get()}', password = '{v_pass.get()}', apellido ='{v_apellido.get()}', direccion ='{v_direccion.get()}', comentarios ='{comentario}' WHERE id='{v_id.get()}'"
+    #cursor.execute(sql)
+    cursor.execute("UPDATE datausuarios SET nombre=?, password=?, apellido=?, direccion=?, comentarios=? WHERE ID=" + v_id.get(), (datos))
     mi_conexion.commit()
 
     messagebox.showinfo("BBDD", "Registro se ha actualizado")
