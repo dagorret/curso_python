@@ -19,3 +19,31 @@ print(texto_encontrdo.end())
 print(texto_encontrdo.span())
 
 print(re.findall(texto_buscar, cadena))
+
+lista_nombres = ["Ana Gomez",
+                "Maria Martin",
+                "Sandra Lopez",
+                "Santiago Martin",
+                "Sandra Fernandez"]
+
+for e in lista_nombres:
+    if re.findall('^Sandra', e):
+        print(e)
+
+for e in lista_nombres:
+    if re.findall('Martin$', e):
+        print(e)
+
+lista_dominios = ["http://pildorasinformaticas.es",
+                  "ftp://pildorasinformaticas.es",
+                  "http://pildorasinformaticas.com",
+                  "ftp://pildorasinformaticas.com",
+                  "http://informaticaespaña.com"
+                 ]
+for e in lista_dominios:
+    if re.findall("^ftp", e):
+        print(e)
+
+for e in lista_dominios:
+    if re.findall("[ñ]", e):
+        print(e)
