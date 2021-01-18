@@ -21,5 +21,15 @@ cursor = mi_conexion.cursor()
 # ]
 # cursor.executemany("INSERT INTO productos VALUES(NULL,?,?,?)", productos)
 
+cursor.execute("UPDATE productos SET precio=35 WHERE nombre='pelota'")
+cursor.execute("SELECT * FROM productos")
+productos = cursor.fetchall()
+print(productos)
+
+cursor.execute("DELETE FROM productos WHERE id=4")
+cursor.execute("SELECT * FROM productos")
+productos = cursor.fetchall()
+print(productos)
+
 mi_conexion.commit()
 mi_conexion.close()
