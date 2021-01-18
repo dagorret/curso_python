@@ -59,5 +59,24 @@ scroll_ver = Scrollbar(mi_frame, command=cuadro_texto.yview)
 scroll_ver.grid(row=5, column=2, sticky="nsew")
 cuadro_texto.config(yscrollcommand = scroll_ver.set)
 
+# Label
+l_id = Label(mi_frame, text = "Id:")
+l_id.grid(row=0, column=0, sticky="e", padx=6, pady=6)
+
+l_nombre = Label(mi_frame, text = "Nombre:")
+l_nombre.grid(row=1, column=0, sticky="e", padx=6, pady=6)
+
+l_pass = Label(mi_frame, text = "Password:")
+l_pass.grid(row=2, column=0, sticky="e", padx=6, pady=6)
+
+l_apellido = Label(mi_frame, text = "Apellido:")
+l_apellido.grid(row=3, column=0, sticky="e", padx=6, pady=6)
+
+l_id = Label(mi_frame, text = "Id:")
+l_id.grid(row=4, column=0, sticky="e", padx=6, pady=6)
+
+l_texto = Label(mi_frame, text = "Comentarios:")
+l_texto.grid(row=5, column=0, sticky="e", padx=6, pady=6)
+
 
 root.mainloop()
