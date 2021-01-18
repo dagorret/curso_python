@@ -78,5 +78,23 @@ l_id.grid(row=4, column=0, sticky="e", padx=6, pady=6)
 l_texto = Label(mi_frame, text = "Comentarios:")
 l_texto.grid(row=5, column=0, sticky="e", padx=6, pady=6)
 
+# Botones
+b_frame = Frame(root)
+b_frame.pack()
+
+btn_crear = Button(b_frame, text="Crear")
+btn_crear.grid(row=0, column=0, sticky="e", padx=6, pady=6)
+
+
+btn_leer = Button(b_frame, text="Leer")
+btn_leer.grid(row=0, column=1, sticky="e", padx=6, pady=6)
+
+
+btn_actualizar = Button(b_frame, text="Actualizar")
+btn_actualizar.grid(row=0, column=2, sticky="e", padx=6, pady=6)
+
+
+btn_borrar = Button(b_frame, text="Borrar")
+btn_borrar.grid(row=0, column=3, sticky="e", padx=6, pady=6)
 
 root.mainloop()
