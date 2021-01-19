@@ -62,3 +62,23 @@ lista_nombres_2 = [
 for e in lista_nombres_2:
     if re.findall('[o-t]$', e):
         print(e)
+
+nombre1 = "Jara López"
+nombre2 = "Antonio Gómez"
+nombre3 = "Lara López"
+cadena1 = "5522342"
+if re.match("\d", cadena1, re.IGNORECASE):
+    print("Está la expresion")
+else:
+    print("No está la expresion")
+
+codigo1 ="fasdfjaskdfjka sdkfjsakfjaskfjaskfjsajfsadj71kdsfal;skfasl;fkas;l"
+if re.search("López", nombre1, re.IGNORECASE):
+    print("Está la expresion")
+else:
+    print("No está la expresion")
+
+if re.search("71", codigo1, re.IGNORECASE):
+    print("Está la expresion")
+else:
+    print("No está la expresion")
