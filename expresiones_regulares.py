@@ -47,3 +47,18 @@ for e in lista_dominios:
 for e in lista_dominios:
     if re.findall("[ñ]", e):
         print(e)
+
+
+
+lista_nombres_2 = [
+"Ana",
+"Pedro",
+"María",
+"Rosa",
+"Sandra",
+"Celia"
+]
+
+for e in lista_nombres_2:
+    if re.findall('[o-t]$', e):
+        print(e)
